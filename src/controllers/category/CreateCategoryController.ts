@@ -1,7 +1,15 @@
-class CreateCategoryService {
-	async execute() {
-		return { ok: true };
+import type { Request, Response } from "express";
+import { CreateCategoryService } from "../../services/category/CreateCategoryService";
+
+class CreateCategoryController {
+	async handle(req: Request, res: Response) {
+		const { name } = req.body;
+
+		const categoryService = new CreateCategoryService();
+		const category = categoryService.execute(name);
+
+		return res.json({ category });
 	}
 }
 
-export { CreateCategoryService };
+export { CreateCategoryController };
