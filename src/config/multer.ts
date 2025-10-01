@@ -1,5 +1,5 @@
 import crypto from "node:crypto";
-import { extname, resolve } from "node:path";
+import { resolve } from "node:path";
 import multer from "multer";
 
 export default {

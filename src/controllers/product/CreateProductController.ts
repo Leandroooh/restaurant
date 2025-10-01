@@ -11,7 +11,7 @@ class CreateProductController {
 			throw new Error("upload file error!");
 		}
 
-		const { filename } = req.file;
+		// const { filename } = req.file;
 
 		const product = createProductService.execute({
 			name,
