@@ -1,3 +1,4 @@
+import path from "node:path";
 import cors from "cors";
 import express from "express";
 import { ThrowError } from "./middlewares/ThrowError";
@@ -7,8 +8,11 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
+
 app.use(router);
 app.use(ThrowError);
+
+app.use("/files", express.static(path.resolve(__dirname, "..", "tmp")));
 
 const PORT = 3000;
 app.listen(PORT, () => console.log(`Server has been started at: ${PORT}`));

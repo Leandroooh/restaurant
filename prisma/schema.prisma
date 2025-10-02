@@ -37,11 +37,12 @@ model Category {
 }
 
 model Product {
-  id     String @id @default(uuid())
-  name   String
-  price  String
-  banner String
-  items  Item[]
+  id          String @id @default(uuid())
+  name        String
+  description String
+  price       String
+  banner      String
+  items       Item[]
 
   createdAt DateTime? @default(now())
   updatedAt DateTime? @default(now())
