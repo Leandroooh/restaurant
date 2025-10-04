@@ -6,6 +6,7 @@ import { ListCategoryController } from "./controllers/category/ListCategoryContr
 import { AddItemController } from "./controllers/order/AddItemController";
 import { CreateOrderController } from "./controllers/order/CreateOrderController";
 import { DetailsOrderController } from "./controllers/order/DetailsOrderController";
+import { FinishOrderController } from "./controllers/order/FinishOrderController";
 import { ListOrderController } from "./controllers/order/ListOrderController";
 import { RemoveItemController } from "./controllers/order/RemoveItemController";
 import { RemoveOrderController } from "./controllers/order/RemoveOrderController";
@@ -57,6 +58,11 @@ router.get(
 	"/order/detail",
 	isAuthenticated,
 	new DetailsOrderController().handle,
+);
+router.put(
+	"/order/finish",
+	isAuthenticated,
+	new FinishOrderController().handle,
 );
 
 export { router };
